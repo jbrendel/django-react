@@ -9,7 +9,6 @@ frontend.
 
 - Python 3.11+
 - Node.js 18+
-- PostgreSQL
 - pyenv (for virtual environment management)
 
 ### Quick Setup for Local Development
@@ -25,12 +24,9 @@ cd backend
 pip install -r requirements.txt
 ```
 
-**3. Set up database and run migrations:**
+**3. Run database migrations:**
 ```bash
-# Create database (adjust for your PostgreSQL setup)
-createdb django_react_db
-
-# Run migrations
+# Run migrations (uses SQLite by default)
 python manage.py migrate
 
 # Create superuser (optional, for admin access)
@@ -81,7 +77,7 @@ django-react/
 
 **Backend:**
 - Django 5.x + Django REST Framework
-- PostgreSQL
+- SQLite (development) / PostgreSQL (production ready)
 - JWT Authentication (djangorestframework-simplejwt)
 
 **Frontend:**

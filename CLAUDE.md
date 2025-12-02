@@ -46,7 +46,8 @@ django-react/
 - **djangorestframework-simplejwt**: JWT authentication
 - **django-cors-headers**: CORS handling for development
 - **django-environ**: Environment variable management
-- **PostgreSQL**: Database (via psycopg2-binary)
+- **SQLite**: Database (default for development)
+- **PostgreSQL**: Production-ready database option (via psycopg2-binary)
 - **Gunicorn**: Production WSGI server
 - **WhiteNoise**: Static file serving
 
@@ -277,8 +278,9 @@ SECRET_KEY=your-secret-key
 DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
 
-# Database
-DATABASE_URL=postgres://user:password@localhost:5432/dbname
+# Database (optional - uses SQLite by default)
+# Uncomment and configure for PostgreSQL in production:
+# DATABASE_URL=postgres://user:password@localhost:5432/dbname
 
 # CORS (development)
 CORS_ALLOWED_ORIGINS=http://localhost:5173
@@ -374,7 +376,7 @@ npm test
 
 - [ ] Set `DEBUG=False` in Django settings
 - [ ] Configure `ALLOWED_HOSTS`
-- [ ] Use PostgreSQL (not SQLite)
+- [ ] Consider PostgreSQL for production (SQLite OK for small deployments)
 - [ ] Set secure `SECRET_KEY`
 - [ ] Configure HTTPS/SSL
 - [ ] Set up proper CORS origins
